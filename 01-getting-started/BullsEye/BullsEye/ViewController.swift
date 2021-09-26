@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     }
     
     func setupGame() {
+        slider.value = 50
         updateCurrentValue()
         updateTargetValue()
     }
@@ -40,7 +41,7 @@ class ViewController: UIViewController {
         let message = "The value of the slider is: \(currentValue)\n The bullseye is at: \(targetValue)"
         let alert = UIAlertController(title: "How'd you do?", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { _ in
-            self.updateTargetValue()
+            self.setupGame()
         }
         alert.addAction(action)
         
