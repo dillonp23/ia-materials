@@ -147,7 +147,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="roundValueLabel" destination="ILg-ek-uB8" id="44X-B8-eBD"/>
+                        <outlet property="scoreValueLabel" destination="GbL-zr-ZTL" id="LcR-Kf-Hr1"/>
                         <outlet property="slider" destination="ehO-qI-IvF" id="VR9-zZ-uha"/>
+                        <outlet property="targetValueLabel" destination="LNs-SI-Elv" id="u8P-9H-7Se"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
