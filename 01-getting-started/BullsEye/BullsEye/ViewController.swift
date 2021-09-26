@@ -74,4 +74,10 @@ class ViewController: UIViewController {
     @IBAction func sliderValueChanged(_ slider: UISlider) {
         updateCurrentValue()
     }
+    
+    @IBAction func resetGame(_ button: UIButton) {
+        roundNumber = 0
+        currentScore = 0
+        setupGame()
+    }
 }
