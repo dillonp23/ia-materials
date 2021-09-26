@@ -16,18 +16,34 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupGame()
+    }
+    
+    func setupGame() {
+        updateCurrentValue()
+        updateTargetValue()
+    }
+    
+    func updateTargetValue() {
+        targetValue = Int.random(in: 1...100)
+    }
+    
+    func updateCurrentValue() {
+        currentValue = lroundf(slider.value)
     }
 
     @IBAction func showAlert() {
-        let alert = UIAlertController(title: "Button tapped", message: "You've got my attention", preferredStyle: .alert)
-        let nvmAction = UIAlertAction(title: "Nevermind!", style: .default, handler: nil)
-        alert.addAction(nvmAction)
+        let message = "The value of the slider is: \(currentValue)\n The bullseye is at: \(targetValue)"
+        let alert = UIAlertController(title: "How'd you do?", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
         
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true) {
+            self.updateTargetValue()
+        }
     }
     
     @IBAction func sliderValueChanged(_ slider: UISlider) {
-        self.sliderValue = lroundf(slider.value)
-        print(self.sliderValue)
+        updateCurrentValue()
     }
 }
