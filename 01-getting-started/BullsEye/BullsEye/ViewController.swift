@@ -46,16 +46,24 @@ class ViewController: UIViewController {
         roundValueLabel.text = "\(roundNumber)"
     }
     
-    func calculateScore() {
-        let diff = abs(targetValue - currentValue)
-        currentScore += 100 - diff
+    func calculateScore() -> Int {
+        let points = 100 - abs(targetValue - currentValue)
+        currentScore += points
+        return points
     }
 
     @IBAction func showAlert() {
-        let message = "The value of the slider is: \(currentValue)\n The bullseye is at: \(targetValue)"
-        let alert = UIAlertController(title: "How'd you do?", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default) { _ in
-            self.calculateScore()
+        let points = calculateScore()
+        var title = "How'd you do?"
+        var message = "You hit the number \(currentValue), and scored \(points) points!"
+        
+        if points == 100 {
+            title = "BULLSEYE!"
+            message = "Way to go - you just scored an extra 100 points!"
+        }
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Start next round", style: .default) { _ in
             self.setupGame()
         }
         alert.addAction(action)
