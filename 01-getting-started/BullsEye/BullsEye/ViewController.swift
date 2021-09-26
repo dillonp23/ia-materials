@@ -9,7 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var sliderValue: Int = 0
+    @IBOutlet var slider: UISlider!
+    
+    var currentValue: Int = 0
+    var targetValue: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
