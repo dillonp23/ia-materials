@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var sliderValue: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,5 +22,9 @@ class ViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-
+    
+    @IBAction func sliderValueChanged(_ slider: UISlider) {
+        self.sliderValue = lroundf(slider.value)
+        print(self.sliderValue)
+    }
 }
